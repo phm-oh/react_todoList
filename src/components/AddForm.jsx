@@ -1,15 +1,23 @@
 import React from "react";
 import "./css/AddForm.css";
 
-const AddForm = () => {
+const AddForm = (props) => {
+  const { title, setTitle , saveTask ,editId} = props;
+
   return (
     <div>
       <h2>แบบฟอร์มจัดการงาน</h2>
-      <form >
+      <form  onSubmit={saveTask}>
         <div className="form-control">
-          <input type="text" className="text-input" />
-          <button type="submit" className="submit-btn">
-            เพิ่ม
+          <input
+            type="text"
+            className="text-input"
+            value={title}
+            onChange={ (e) => setTitle(e.target.value) }
+          />
+          <button type="submit" className="submit-btn" >
+             {editId ? 'update' : 'insert'}
+            
           </button>
         </div>
       </form>
