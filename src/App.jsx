@@ -47,6 +47,7 @@ function App() {
     const result = task.filter(item=>item.id  !==id)
     // console.log(result)
     setTask(result)
+    toast.success('ลบข้อมูลสำเร็จ')
   }
 
   function saveTask(e){
@@ -70,6 +71,8 @@ function App() {
         console.log(updateTask);
         setTask(updateTask);
         setEditId(null)
+        setTitle('')
+        toast.success('แก้ไขข้อมูลสำเร็จ')
 
       }
       else {
